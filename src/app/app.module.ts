@@ -10,7 +10,7 @@ import { appRoutingModule } from './app.routing';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
-import { Tab1Page } from './login';
+import { Events } from './events';
 import { RegisterComponent } from './register';
 import { AlertComponent } from './_components';
 
@@ -25,7 +25,7 @@ import { AlertComponent } from './_components';
     declarations: [
         AppComponent,
         HomeComponent,
-        Tab1Page,
+        Events,
         RegisterComponent,
         AlertComponent
     ],

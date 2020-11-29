@@ -5,10 +5,10 @@ import { InputDialogServiceProvider } from '../providers/input-dialog-service/in
 
 @Component({
   // selector: 'app-tab1',
-  templateUrl: 'login.component.html',
+  templateUrl: 'events.component.html',
   // styleUrls: ['login.component.css']
 })
-export class Tab1Page {
+export class Events {
 
   events = [];
   errorMessage: string;

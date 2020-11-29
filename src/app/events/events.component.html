@@ -1,0 +1,15 @@
+﻿<div>
+  <h2>
+    Events
+  </h2>
+</div>
+<div>
+  <li *ngFor="let event of events; let i = index">
+    {{event.title}}
+    <!-- <button (click)="editEvent(event, i)" ion-button class="edit-button"> -->
+    <button (click)="editEvent(event, i)" ion-button class="edit-button" icon-start>
+      <ion-icon name="create"></ion-icon>
+      Edit
+    </button>
+  </li>
+</div>
