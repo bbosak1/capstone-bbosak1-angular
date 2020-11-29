@@ -11,7 +11,6 @@ export class InputDialogServiceProvider {
   }
 
   async showPrompt(event?, index?) {
-    console.log(event);
     const prompt = await this.alertCtrl.create({
       header: event ? 'Edit Event' : 'Add Event',
       message: event ? "Please edit event..." : "Please enter event...",

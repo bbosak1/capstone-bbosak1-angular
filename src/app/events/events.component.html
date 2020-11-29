@@ -1,15 +1,37 @@
 ﻿<div>
-  <h2>
+  <h1>
     Events
-  </h2>
+  </h1>
 </div>
 <div>
   <li *ngFor="let event of events; let i = index">
     {{event.title}}
-    <!-- <button (click)="editEvent(event, i)" ion-button class="edit-button"> -->
     <button (click)="editEvent(event, i)" ion-button class="edit-button" icon-start>
-      <ion-icon name="create"></ion-icon>
       Edit
+    </button>
+    <button (click)="removeEvent(event, i)" ion-button class="remove-button" icon-start>
+      Delete
     </button>
   </li>
 </div>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addEvent()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button>
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Events</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <a routerLink="/todos">To-Do</a>
+      <!-- <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>To-Dos</ion-label> -->
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -11,7 +11,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { Events } from './events';
-import { RegisterComponent } from './register';
+import { Todo } from './todo';
 import { AlertComponent } from './_components';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { AlertComponent } from './_components';
         AppComponent,
         HomeComponent,
         Events,
-        RegisterComponent,
+        Todo,
         AlertComponent
     ],
     providers: [

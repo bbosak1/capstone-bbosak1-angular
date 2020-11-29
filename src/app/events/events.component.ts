@@ -4,9 +4,11 @@ import { EventServiceProvider } from '../providers/event-service/event-service';
 import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
 
 @Component({
-  // selector: 'app-tab1',
   templateUrl: 'events.component.html',
-  // styleUrls: ['login.component.css']
+  styles: [
+    'h1 { font-weight: heavy; }',
+    '.edit-button { background-color: blue; }'
+  ]
 })
 export class Events {
 
