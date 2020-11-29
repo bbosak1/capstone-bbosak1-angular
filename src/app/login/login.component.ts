@@ -1,64 +1,53 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+﻿import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { EventServiceProvider } from '../providers/event-service/event-service';
+import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
 
-import { AlertService, AuthenticationService } from '@/_services';
+@Component({
+  // selector: 'app-tab1',
+  templateUrl: 'login.component.html',
+  // styleUrls: ['login.component.css']
+})
+export class Tab1Page {
 
-@Component({ templateUrl: 'login.component.html' })
-export class LoginComponent implements OnInit {
-    loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    returnUrl: string;
+  events = [];
+  errorMessage: string;
+  title = "Events";
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService
+  constructor (
+    public navCtrl: NavController,
+    public dataService: EventServiceProvider,
+    public inputDialogService: InputDialogServiceProvider,
     ) {
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-        }
-    }
+      this.loadEvents();
+      dataService.dataChanged$.subscribe((dataChanged: boolean) => {
+        this.loadEvents();
+      }
+    );
+  }
 
-    ngOnInit() {
-        this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
-        });
+  loadEvents() {
+    this.dataService.getEvents()
+      .subscribe (
+        events => this.events = events,
+        error => this.errorMessage = <any>error
+      );
+  }
 
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    }
+  removeEvent(event) {
+    this.dataService.removeEvent(event);
+  }
 
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
+  editEvent(event, index) {
+    this.inputDialogService.showPrompt(event, index);
+  }
 
-    onSubmit() {
-        this.submitted = true;
+  addEvent() {
+    this.inputDialogService.showPrompt();
+  }
 
-        // reset alerts on submit
-        this.alertService.clear();
+  removeTodo(todo) {
+    this.dataService.removeTodo(todo);
+  }
 
-        // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
-
-        this.loading = true;
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
-    }
 }
