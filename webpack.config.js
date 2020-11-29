@@ -27,7 +27,11 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
-              },
+            },
+            {
+							test: /\.(eot|gif|otf|png|svg|ttf|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+							use: [ 'file-loader' ],
+						},
 
             // workaround for warning: System.import() is deprecated and will be removed soon. Use import() instead.
             {
