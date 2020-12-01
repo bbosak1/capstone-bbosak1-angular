@@ -1,12 +1,4 @@
-﻿<!-- <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>
-        To-Dos
-      </ion-title>
-    </ion-toolbar>
-</ion-header> -->
-
-<div>
+﻿<div>
   <h1>
     To-Dos
   </h1>
@@ -23,44 +15,26 @@
   </li>
 </div>
 
-  <!-- <ion-content>
-    <ion-item-sliding *ngFor="let todo of todos; let i = index">
-      <ion-item>
-        <ion-label>
-          <h2>{{todo.descr}}</h2>
-        </ion-label>
-      </ion-item>
-      <ion-item-options>
-        <button (click)="removeTodo(todo)">
-          <ion-icon name="checkmark"></ion-icon>
-          Complete
-        </button>
-      </ion-item-options>
-    </ion-item-sliding> -->
-
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button (click)="addTodo()">
       </ion-fab-button>
     </ion-fab>
-
-  <!-- </ion-content> -->
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button>
-        <a routerLink="/events">
-          <img src="../img/logo3.png" alt="Events" width="25" height="30">
-          <br/>
-          Events
-        </a>
-      </ion-tab-button>
-
-      <ion-tab-button>
-        <a routerLink="/todos">
-          <img src="../img/logo4.png" alt="Todo" width="25" height="30">
-          <br/>
-          To-Do
-        </a>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+    <footer>
+      <hr>
+      <div class="tabs">
+        <div class="tab-icon">
+          <a routerLink="/events">
+            <img src="../img/logo3.png" alt="Events" width="25" height="30">
+            <br/>
+            Events
+          </a>
+        </div>
+        <div class="tab-icon">
+          <a routerLink="/todos">
+            <img src="../img/logo4.png" alt="Todo" width="25" height="30">
+            <br/>
+            To-Do
+          </a>
+        </div>
+      </div>
+    </footer>

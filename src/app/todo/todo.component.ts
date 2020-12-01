@@ -5,7 +5,11 @@ import { InputDialogServiceProvider } from '../providers/input-dialog-service/in
 @Component({
   selector: 'app-tab2',
   templateUrl: 'todo.component.html',
-  // styleUrls: ['tab2.page.scss']
+  styles: [
+    'footer { position: fixed; left: 0; bottom: 0; width: 100%; color: white; text-align: center; }', // background-color: #85DCBA;
+    '.tabs { display: inline-flex !important; }',
+    '.tab-icon { padding-left: 8px; padding-right: 8px; }',
+  ]
 })
 export class Todo {
 
