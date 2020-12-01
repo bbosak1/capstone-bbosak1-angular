@@ -83,11 +83,6 @@ export class InputDialogServiceProvider {
           placeholder: 'Assignee',
           value: todo ? todo.assignee : null
         },
-        // {
-        //   name: 'name',
-        //   placeholder: 'Name',
-        //   value: todo ? todo.name : null
-        // },
       ],
       buttons: [
         {

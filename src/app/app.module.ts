@@ -9,7 +9,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { appRoutingModule } from './app.routing';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
 import { Events } from './events';
 import { Todo } from './todo';
 import { AlertComponent } from './_components';
@@ -24,7 +23,6 @@ import { AlertComponent } from './_components';
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
         Events,
         Todo,
         AlertComponent

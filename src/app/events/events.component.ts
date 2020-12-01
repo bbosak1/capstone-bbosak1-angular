@@ -7,7 +7,10 @@ import { InputDialogServiceProvider } from '../providers/input-dialog-service/in
   templateUrl: 'events.component.html',
   styles: [
     'h1 { font-weight: heavy; }',
-    '.edit-button { background-color: blue; }'
+    '.edit-button { background-color: blue; }',
+    'footer { position: fixed; left: 0; bottom: 0; width: 100%; color: white; text-align: center; }', // background-color: #85DCBA;
+    '.tabs { display: inline-flex !important; }',
+    '.tab-icon { padding-left: 8px; padding-right: 8px; }',
   ]
 })
 export class Events {
@@ -37,10 +40,12 @@ export class Events {
   }
 
   removeEvent(event) {
+    console.log('hi');
     this.dataService.removeEvent(event);
   }
 
   editEvent(event, index) {
+    console.log('horse');
     this.inputDialogService.showPrompt(event, index);
   }
 

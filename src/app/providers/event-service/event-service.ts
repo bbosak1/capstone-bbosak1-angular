@@ -14,8 +14,7 @@ export class EventServiceProvider {
 
   private dataChangeSubject: Subject<boolean>;
 
-  eventURL = "http://localhost:8081/";
-  todoURL  = "http://localhost:8082/";
+  svcURL = "http://localhost:8081/";
 
   constructor(
     public http: HttpClient
@@ -42,14 +41,14 @@ export class EventServiceProvider {
   }
 
   getEvents(): Observable<any> {
-    return this.http.get(this.eventURL + 'api/events').pipe(
+    return this.http.get(this.svcURL + 'api/events').pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
   }
 
   removeEvent(event) {
-    this.http.delete(this.eventURL + "api/events/" + event._id)
+    this.http.delete(this.svcURL + "api/events/" + event._id)
       .subscribe(res => {
         this.events = res;
         this.dataChangeSubject.next(true);
@@ -57,7 +56,7 @@ export class EventServiceProvider {
   }
 
   addEvent(event) {
-    this.http.post(this.eventURL + "api/events", event)
+    this.http.post(this.svcURL + "api/events", event)
       .subscribe(res => {
         this.events = res;
         this.dataChangeSubject.next(true);
@@ -66,7 +65,7 @@ export class EventServiceProvider {
 
   // Add Todo
   addTodo(todo) {
-    this.http.post(this.todoURL + "api/todos", todo)
+    this.http.post(this.svcURL + "api/todos", todo)
       .subscribe(res => {
         this.todos = res;
         this.dataChangeSubject.next(true);
@@ -74,7 +73,7 @@ export class EventServiceProvider {
   }
 
   removeTodo(todo) {
-    this.http.delete(this.todoURL + "api/todos/" + todo._id)
+    this.http.delete(this.svcURL + "api/todos/" + todo._id)
     .subscribe(res => {
       this.todos = res;
       this.dataChangeSubject.next(true);
@@ -82,7 +81,7 @@ export class EventServiceProvider {
   }
 
   editEvent(event, index) {
-    this.http.put(this.eventURL + "api/events/" + event._id, event)
+    this.http.put(this.svcURL + "api/events/" + event._id, event)
       .subscribe(res => {
         this.events = res;
         this.dataChangeSubject.next(true);
@@ -91,10 +90,18 @@ export class EventServiceProvider {
 
   // Todos
   getTodos(): Observable<any> {
-    return this.http.get(this.todoURL + 'api/todos').pipe(
+    return this.http.get(this.svcURL + 'api/todos').pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
+  }
+
+  editTodo(todo) {
+    this.http.put(this.svcURL + "api/todos/" + todo._id, todo)
+      .subscribe(res => {
+        this.todos = res;
+        this.dataChangeSubject.next(true);
+      });
   }
 
 }

@@ -1,12 +1,29 @@
-﻿<ion-header [translucent]="true">
+﻿<!-- <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>
         To-Dos
       </ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header> -->
 
-  <ion-content>
+<div>
+  <h1>
+    To-Dos
+  </h1>
+</div>
+<div>
+  <li *ngFor="let todo of todos; let i = index">
+    {{todo.descr}}
+    <button (click)="editTodo(todo)" >
+      Edit
+    </button>
+    <button (click)="removeTodo(todo)">
+      Delete
+    </button>
+  </li>
+</div>
+
+  <!-- <ion-content>
     <ion-item-sliding *ngFor="let todo of todos; let i = index">
       <ion-item>
         <ion-label>
@@ -19,21 +36,20 @@
           Complete
         </button>
       </ion-item-options>
-    </ion-item-sliding>
+    </ion-item-sliding> -->
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button (click)="addTodo()">
-        <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
 
-  </ion-content>
+  <!-- </ion-content> -->
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button>
         <a routerLink="/events">
-          <img src="../img/logo3.png" alt="Todo" width="25" height="30">
+          <img src="../img/logo3.png" alt="Events" width="25" height="30">
           <br/>
           Events
         </a>
