@@ -3,22 +3,26 @@
     To-Dos
   </h1>
 </div>
-<div>
-  <li *ngFor="let todo of todos; let i = index">
-    {{todo.descr}}
-    <button (click)="editTodo(todo)" >
-      Edit
-    </button>
-    <button (click)="removeTodo(todo)">
-      Delete
-    </button>
-  </li>
-</div>
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="addTodo()">
-      </ion-fab-button>
-    </ion-fab>
+<ion-item *ngFor="let todo of todos; let i = index">
+  <ion-label>
+    {{todo.descr}}
+  </ion-label>
+  <div class="edit-delete-buttons">
+    <button (click)="editTodo(todo, i)" class="edit-button">
+      <img src="../img/edit.png" alt="Edit Event" width="25" height="30">
+    </button>
+    <button (click)="removeTodo(todo, i)" ion-button class="remove-button" icon-start>
+      <img src="../img/trash.png" alt="Edit Event" width="25" height="30">
+    </button>
+  </div>
+</ion-item>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addTodo()">
+    <img src="../img/plus-round.png" alt="Add Event" width="25" height="30">
+  </ion-fab-button>
+</ion-fab>
     <footer>
       <hr>
       <div class="tabs">

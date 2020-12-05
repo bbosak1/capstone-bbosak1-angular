@@ -9,6 +9,10 @@ import { InputDialogServiceProvider } from '../providers/input-dialog-service/in
     'footer { position: fixed; left: 0; bottom: 0; width: 100%; color: white; text-align: center; }', // background-color: #85DCBA;
     '.tabs { display: inline-flex !important; }',
     '.tab-icon { padding-left: 8px; padding-right: 8px; }',
+    'ion-fab-button { --background: #41B3A3; }',
+    '.edit-button { background-color: #85DCBA }',
+    '.remove-button { background-color: #E27D60 }',
+    '.edit-delete-buttons { position: absolute; right: 3px; }',
   ]
 })
 export class Todo {
