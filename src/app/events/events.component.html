@@ -7,19 +7,19 @@
   <ion-card-header>
     <ion-card-subtitle>
       {{event.date}}
-      <div class="edit-delete-buttons">
-        <button (click)="editEvent(event, i)" class="edit-button">
-          Edit
-        </button>
-        <button (click)="removeEvent(event, i)" ion-button class="remove-button" icon-start>
-          Delete
-        </button>
-      </div>
     </ion-card-subtitle>
     <ion-card-title>{{event.title}}</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
+    <div class="edit-delete-buttons">
+      <button (click)="editEvent(event, i)" class="edit-button">
+        <img src="../img/edit.png" alt="Edit Event" width="25" height="30">
+      </button>
+      <button (click)="removeEvent(event, i)" ion-button class="remove-button" icon-start>
+        <img src="../img/trash.png" alt="Edit Event" width="25" height="30">
+      </button>
+    </div>
     <table>
       <tr>
         <th>
@@ -61,7 +61,7 @@
           {{event.decoration}} | {{event.decorationAsgn}}
         </td>
         <td>
-          {{event.guestFirstName}} | {{event.guestLastName}}
+          {{event.guestFirstName}} {{event.guestLastName}}
         </td>
         <td>
           {{event.supplyItem}} | {{event.supplyAsgn}}

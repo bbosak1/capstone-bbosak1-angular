@@ -40,6 +40,46 @@ export class InputDialogServiceProvider {
           placeholder: 'Location',
           value: event ? event.loc : null
         },
+        {
+          name: 'menuItem',
+          placeholder: 'Menu',
+          value: event ? event.menuItem : null
+        },
+        {
+          name: 'menuAsgn',
+          placeholder: 'Menu Assignee',
+          value: event ? event.menuAsgn : null
+        },
+        {
+          name: 'decoration',
+          placeholder: 'Decorations',
+          value: event ? event.decoration : null
+        },
+        {
+          name: 'decorationAsgn',
+          placeholder: 'Decoration Assignee',
+          value: event ? event.decorationAsgn : null
+        },
+        {
+          name: 'guestFirstName',
+          placeholder: 'Guest First Name',
+          value: event ? event.guestFirstName : null
+        },
+        {
+          name: 'guestLastName',
+          placeholder: 'Guest Last Name',
+          value: event ? event.guestLastName : null
+        },
+        {
+          name: 'supplyItem',
+          placeholder: 'Supplies',
+          value: event ? event.supplyItem : null
+        },
+        {
+          name: 'supplyAsgn',
+          placeholder: 'Supplies Assignee',
+          value: event ? event.supplyAsgn : null
+        },
       ],
       buttons: [
         {
@@ -56,6 +96,14 @@ export class InputDialogServiceProvider {
               event.timeSt = data.timeSt;
               event.timeEnd = data.timeEnd;
               event.loc = data.loc;
+              event.menuItem = data.menuItem;
+              event.menuAsgn = data.menuAsgn;
+              event.decoration = data.decoration;
+              event.decorationAsgn = data.decorationAsgn;
+              event.guestFirstName = data.guestFirstName;
+              event.guestLastName = data.guestLastName;
+              event.supplyItem = data.supplyItem;
+              event.supplyAsgn = data.supplyAsgn;
               this.dataService.editEvent(event, index);
             }
             else {

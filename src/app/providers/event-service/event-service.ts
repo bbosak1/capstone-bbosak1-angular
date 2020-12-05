@@ -14,7 +14,7 @@ export class EventServiceProvider {
 
   private dataChangeSubject: Subject<boolean>;
 
-  svcURL = "http://localhost:8081/";
+  svcURL = "http://ec2-3-133-79-60.us-east-2.compute.amazonaws.com/";
 
   constructor(
     public http: HttpClient
