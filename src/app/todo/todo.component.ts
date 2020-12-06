@@ -51,9 +51,8 @@ export class Todo {
     this.dataService.removeTodo(todo);
   }
 
-  editTodo(todo) {
-    console.log('hi');
-    this.dataService.editTodo(todo);
+  editTodo(todo, i) {
+    this.inputDialogService.showTodoPrompt(todo, i);
   }
 
 }

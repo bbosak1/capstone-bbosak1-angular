@@ -45,12 +45,10 @@ export class Events {
   }
 
   removeEvent(event) {
-    console.log('hi');
     this.dataService.removeEvent(event);
   }
 
   editEvent(event, index) {
-    console.log('horse');
     this.inputDialogService.showPrompt(event, index);
   }
 

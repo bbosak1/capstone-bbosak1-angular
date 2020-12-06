@@ -6,7 +6,7 @@
 
 <ion-item *ngFor="let todo of todos; let i = index">
   <ion-label>
-    {{todo.descr}}
+    {{todo.descr}} | {{todo.assignee}}
   </ion-label>
   <div class="edit-delete-buttons">
     <button (click)="editTodo(todo, i)" class="edit-button">

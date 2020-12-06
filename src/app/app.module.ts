@@ -7,11 +7,9 @@ import { InputDialogServiceProvider } from './providers/input-dialog-service/inp
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { appRoutingModule } from './app.routing';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { Events } from './events';
 import { Todo } from './todo';
-import { AlertComponent } from './_components';
 
 @NgModule({
     imports: [
@@ -25,13 +23,10 @@ import { AlertComponent } from './_components';
         AppComponent,
         Events,
         Todo,
-        AlertComponent
     ],
     providers: [
         EventServiceProvider,
         InputDialogServiceProvider,
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     ],
     bootstrap: [AppComponent]
 })
